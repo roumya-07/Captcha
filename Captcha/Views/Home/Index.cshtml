@@ -3,11 +3,63 @@
 }
 
 
+<style>
+    .catchaBox {
+        display: flex;
+        position: relative;
+        overflow: hidden;
+        border-radius: 4px;
+        height: 38px;
+    }
+
+    .cap-img {
+        float: left;
+        width: 30%;
+    }
+
+        .cap-img img {
+            width: 100%;
+            height: 38px;
+        }
+
+    .registration-form .mobile-veirify i {
+        font-size: 0.9rem;
+        transition: 0.5s;
+    }
+
+    .refresh-btn {
+        color: #fff;
+        background: #2a4a32;
+        display: flex;
+        align-items: center;
+        height: 38px;
+        justify-content: center;
+        width: 38px;
+        float: right;
+    }
+
+        .refresh-btn:hover {
+            color: #fff;
+        }
+
+            .refresh-btn:hover i {
+                transform: rotate(45deg);
+            }
+</style>
+
 <div class="col-6 pl-sm-0">
     <div class="catchaBox">
         <div class="cap-img">
             <img id="imgcode" class="authcode" src="@Url.Action("GetAuthCode","Home")">
         </div>
-        <a id="switchCode" href="javascript:void(0);" class="refresh-btn"><i class="icon-reload font-weight-bold"></i></a>
+        <a id="switchCode" href="javascript:void(0);" class="refresh-btn"><i class="bi bi-arrow-clockwise font-weight-bold"></i></a>
     </div>
 </div>
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+<script>
+    $("#switchCode").click(function () {
+        $("#imgcode").attr("src", '@Url.Content("~/")' +"Home/GetAuthCode?time=" + Math.random());
+        });
+</script>
