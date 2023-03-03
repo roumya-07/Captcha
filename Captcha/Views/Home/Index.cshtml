@@ -1,0 +1,13 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<div class="col-6 pl-sm-0">
+    <div class="catchaBox">
+        <div class="cap-img">
+            <img id="imgcode" class="authcode" src="@Url.Action("GetAuthCode","Home")">
+        </div>
+        <a id="switchCode" href="javascript:void(0);" class="refresh-btn"><i class="icon-reload font-weight-bold"></i></a>
+    </div>
+</div>
